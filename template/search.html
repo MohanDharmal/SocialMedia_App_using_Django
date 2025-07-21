@@ -1,0 +1,67 @@
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Search</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Search Form -->
+                <form method="get" action="{% url 'search' %}">
+                    <div class="input-group mb-3">
+                        <input type="text" name="q" class="form-control" placeholder="Search users and posts..." value="{{ query|default:'' }}">
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+                {% if query %}
+                    <!-- Users -->
+                    <h6>Users matching "{{ query }}"</h6>
+                    {% if profiles %}
+                        <ul class="list-group mb-4">
+                            {% for profile in profiles %}
+                                <li class="list-group-item d-flex align-items-center">
+                                    <img src="{{ profile.profileimg.url }}" alt="Profile Image" class="rounded-circle me-2" width="40" height="40">
+                                    <a href="{% url 'profile' profile.user.username %}">{{ profile.user.username }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No users found.</p>
+                    {% endif %}
+
+                    <!-- Posts -->
+                    <h6>Posts matching "{{ query }}"</h6>
+                    {% if posts %}
+                        <div class="row">
+                            {% for post in posts %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                        <img src="{{ post.image.url }}" class="card-img-top" alt="Post image">
+                                        <div class="card-body">
+                                            <p class="card-text">{{ post.caption }}</p>
+                                            <p class="text-muted small">by <a href="{% url 'profile' post.user.username %}">{{ post.user.username }}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No posts found.</p>
+                    {% endif %}
+                {% else %}
+                    <p>Type a keyword and hit search to find users and posts.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

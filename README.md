@@ -88,7 +88,6 @@ Like, comment, follow users, and message them.
 ### Message
 <img width="1920" height="1080" alt="Messages1" src="https://github.com/user-attachments/assets/2aef4ecb-138b-4893-af51-ce1a1d20f835" />
 <img width="1920" height="1080" alt="Messages2" src="https://github.com/user-attachments/assets/e8f2e644-853b-4a54-b776-df738eff9b73" />
-<img width="1920" height="1080" alt="Messages3" src="https://github.com/user-attachments/assets/d030f864-5079-4648-ab3c-66446c79aecb" />
 <img width="1920" height="1080" alt="Messages4" src="https://github.com/user-attachments/assets/ef91d401-d3bd-402d-a8f1-8718f7c85b5a" />
 
 
